@@ -1,0 +1,16 @@
+.env
+/files
+*.exe
+backups
+.idea/
+.vscode/
+__debug_bin
+/tmp
+larsa-files
+# local secrets and build output
+.env
+.env.*
+!.env.example
+!.env.template
+tmp/
+*.log

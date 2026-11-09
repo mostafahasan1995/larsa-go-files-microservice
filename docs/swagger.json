@@ -1,0 +1,682 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Swagger Go-Notifications API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/notification": {
+            "get": {
+                "description": "gets paginated notifications.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "notifications"
+                ],
+                "summary": "get paginated notifications",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-client",
+                        "name": "x-client",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-access-token",
+                        "name": "x-access-token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "accept-language",
+                        "name": "accept-language",
+                        "in": "header"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "getAll",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "groupBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "lang",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "perPage",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "projection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "query",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "sortBy",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.NotificationPagination"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "adds and sends a notification to users.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "notifications"
+                ],
+                "summary": "add a notification",
+                "parameters": [
+                    {
+                        "description": "The notification to send",
+                        "name": "notification",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.NotificationRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-client",
+                        "name": "x-client",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-access-token",
+                        "name": "x-access-token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.SendNotificationResult"
+                        }
+                    }
+                }
+            }
+        },
+        "/notification/me": {
+            "get": {
+                "description": "gets my paginated notifications.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "notifications"
+                ],
+                "summary": "get my notifications",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-client",
+                        "name": "x-client",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-access-token",
+                        "name": "x-access-token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-service",
+                        "name": "x-service",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "accept-language",
+                        "name": "accept-language",
+                        "in": "header"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "accept-language",
+                        "name": "topics",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "getAll",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "groupBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "lang",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "perPage",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "projection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "query",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "sortBy",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.NotificationPagination"
+                        }
+                    }
+                }
+            }
+        },
+        "/notification/topic": {
+            "post": {
+                "description": "adds and sends a notification to topic.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "notifications"
+                ],
+                "summary": "add a notification with topic",
+                "parameters": [
+                    {
+                        "description": "The notification to send",
+                        "name": "notification",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Notification"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-client",
+                        "name": "x-client",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-access-token",
+                        "name": "x-access-token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.SendNotificationResult"
+                        }
+                    }
+                }
+            }
+        },
+        "/notification/{id}": {
+            "get": {
+                "description": "gets a notification by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "notifications"
+                ],
+                "summary": "get a notification",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-client",
+                        "name": "x-client",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-access-token",
+                        "name": "x-access-token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "accept-language",
+                        "name": "accept-language",
+                        "in": "header"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Notification"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "deletes a notification by id.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "notifications"
+                ],
+                "summary": "delete a notification",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-client",
+                        "name": "x-client",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-access-token",
+                        "name": "x-access-token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "/token": {
+            "post": {
+                "description": "adds and sends a token to a user.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tokens"
+                ],
+                "summary": "add a token",
+                "parameters": [
+                    {
+                        "description": "token",
+                        "name": "token",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TokenRequest"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-client",
+                        "name": "x-client",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "x-access-token",
+                        "name": "x-access-token",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/mongo.InsertManyResult"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "common.Pagination": {
+            "type": "object",
+            "properties": {
+                "perPage": {
+                    "type": "integer"
+                },
+                "totalCount": {
+                    "type": "integer"
+                },
+                "totalPages": {
+                    "type": "number"
+                }
+            }
+        },
+        "messaging.BatchResponse": {
+            "type": "object",
+            "properties": {
+                "failureCount": {
+                    "type": "integer"
+                },
+                "responses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/messaging.SendResponse"
+                    }
+                },
+                "successCount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "messaging.SendResponse": {
+            "type": "object",
+            "properties": {
+                "error": {},
+                "messageID": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "models.Notification": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "header": {
+                    "type": "string"
+                },
+                "recipient": {
+                    "type": "string"
+                },
+                "service": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/definitions/types.NotificationStatus"
+                },
+                "topic": {
+                    "type": "string"
+                },
+                "touched": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "$ref": "#/definitions/types.NotificationType"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.NotificationPagination": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Notification"
+                    }
+                },
+                "pagination": {
+                    "$ref": "#/definitions/common.Pagination"
+                }
+            }
+        },
+        "models.NotificationRequest": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "$ref": "#/definitions/types.Omit"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "header": {
+                    "type": "string"
+                },
+                "recipient": {
+                    "type": "string"
+                },
+                "service": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/definitions/types.NotificationStatus"
+                },
+                "topic": {
+                    "type": "string"
+                },
+                "touched": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "$ref": "#/definitions/types.NotificationType"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "userIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "models.TokenRequest": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "$ref": "#/definitions/types.Omit"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/definitions/types.NotificationType"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mongo.InsertManyResult": {
+            "type": "object",
+            "properties": {
+                "insertedIDs": {
+                    "description": "The _id values of the inserted documents. Values generated by the driver will be of type primitive.ObjectID.",
+                    "type": "array",
+                    "items": {}
+                }
+            }
+        },
+        "service.SendNotificationResult": {
+            "type": "object",
+            "properties": {
+                "batchResponse": {
+                    "$ref": "#/definitions/messaging.BatchResponse"
+                },
+                "insertManyResult": {
+                    "$ref": "#/definitions/mongo.InsertManyResult"
+                },
+                "topicResponse": {
+                    "type": "string"
+                }
+            }
+        },
+        "types.NotificationStatus": {
+            "type": "string",
+            "enum": [
+                "read",
+                "unread"
+            ],
+            "x-enum-varnames": [
+                "NotificationStatusRead",
+                "NotificationStatusUnread"
+            ]
+        },
+        "types.NotificationType": {
+            "type": "string",
+            "enum": [
+                "fcm"
+            ],
+            "x-enum-varnames": [
+                "NotificationTypeFCM"
+            ]
+        },
+        "types.Omit": {
+            "type": "object"
+        }
+    }
+}

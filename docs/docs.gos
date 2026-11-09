@@ -1,0 +1,227 @@
+// package docs
+
+// import "github.com/swaggo/swag"
+
+// const docTemplate = `{
+// 	"info": {
+// 		"_postman_id": "ea990323-0688-4971-90c1-5ea6ce20f3f2",
+// 		"name": "file",
+// 		"description": "",
+// 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+// 		"_exporter_id": "26920279",
+// 		"_collection_link": "https://dark-escape-103946.postman.co/workspace/Team-Workspace~78578692-db63-41dd-8afa-7eea2a6d5819/collection/26920279-ea990323-0688-4971-90c1-5ea6ce20f3f2?action=share&source=collection_link&creator=26920279"
+// 	},
+// 	"item": [
+// 		{
+// 			"name": "files",
+// 			"item": [
+// 				{
+// 					"name": "file by id",
+// 					"event": [
+// 						{
+// 							"listen": "test",
+// 							"script": {
+// 								"exec": [
+// 									"pm.test(\"Status code is 200\", function () {",
+// 									"    pm.response.to.have.status(200);",
+// 									"});"
+// 								],
+// 								"type": "text/javascript",
+// 								"packages": {}
+// 							}
+// 						}
+// 					],
+// 					"request": {
+// 						"method": "GET",
+// 						"header": [
+// 							{
+// 								"key": "x-client",
+// 								"value": "{{client}}",
+// 								"type": "text"
+// 							},
+// 							{
+// 								"key": "x-access-token",
+// 								"value": "{{token}}",
+// 								"type": "text"
+// 							}
+// 						],
+// 						"url": {
+// 							"raw": "{{base_url}}/:givenPath",
+// 							"host": [
+// 								"{{base_url}}"
+// 							],
+// 							"path": [
+// 								":givenPath"
+// 							],
+// 							"variable": [
+// 								{
+// 									"key": "givenPath",
+// 									"value": ""
+// 								}
+// 							]
+// 						},
+// 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have ).\n\nA successful GET response will have a  status, and should include some kind of response body - for example, HTML web content or JSON data."
+// 					},
+// 					"response": []
+// 				},
+// 				{
+// 					"name": "Delete files",
+// 					"event": [
+// 						{
+// 							"listen": "test",
+// 							"script": {
+// 								"exec": [
+// 									"pm.test(\"Successful DELETE request\", function () {",
+// 									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+// 									"});",
+// 									""
+// 								],
+// 								"type": "text/javascript",
+// 								"packages": {}
+// 							}
+// 						}
+// 					],
+// 					"request": {
+// 						"method": "DELETE",
+// 						"header": [
+// 							{
+// 								"key": "x-client",
+// 								"value": "{{client}}",
+// 								"type": "text"
+// 							},
+// 							{
+// 								"key": "x-access-token",
+// 								"value": "{{token}}",
+// 								"type": "text"
+// 							}
+// 						],
+// 						"body": {
+// 							"mode": "raw",
+// 							"raw": "",
+// 							"options": {
+// 								"raw": {
+// 									"language": "json"
+// 								}
+// 							}
+// 						},
+// 						"url": {
+// 							"raw": "{{base_url}}/:id",
+// 							"host": [
+// 								"{{base_url}}"
+// 							],
+// 							"path": [
+// 								":id"
+// 							],
+// 							"variable": [
+// 								{
+// 									"key": "id",
+// 									"value": ""
+// 								}
+// 							]
+// 						},
+// 						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL .\n\nA successful DELETE request typically returns a  response code."
+// 					},
+// 					"response": []
+// 				},
+// 				{
+// 					"name": "uploda file",
+// 					"event": [
+// 						{
+// 							"listen": "test",
+// 							"script": {
+// 								"exec": [
+// 									"pm.test(\"Successful POST request\", function () {",
+// 									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+// 									"});",
+// 									""
+// 								],
+// 								"type": "text/javascript",
+// 								"packages": {}
+// 							}
+// 						}
+// 					],
+// 					"request": {
+// 						"method": "POST",
+// 						"header": [
+// 							{
+// 								"key": "x-client",
+// 								"value": "604674966fe156529e3e03e9",
+// 								"type": "text"
+// 							},
+// 							{
+// 								"key": "x-access-token",
+// 								"value": "<JWT>",
+// 								"type": "text"
+// 							}
+// 						],
+// 						"body": {
+// 							"mode": "formdata",
+// 							"formdata": [
+// 								{
+// 									"key": "file",
+// 									"type": "file",
+// 									"src": []
+// 								}
+// 							]
+// 						},
+// 						"url": {
+// 							"raw": "{{base_url}}",
+// 							"host": [
+// 								"{{base_url}}"
+// 							]
+// 						}
+// 					},
+// 					"response": []
+// 				}
+// 			]
+// 		}
+// 	],
+// 	"event": [
+// 		{
+// 			"listen": "prerequest",
+// 			"script": {
+// 				"type": "text/javascript",
+// 				"exec": [
+// 					""
+// 				]
+// 			}
+// 		},
+// 		{
+// 			"listen": "test",
+// 			"script": {
+// 				"type": "text/javascript",
+// 				"exec": [
+// 					""
+// 				]
+// 			}
+// 		}
+// 	],
+// 	"variable": [
+// 		{
+// 			"key": "id",
+// 			"value": "1"
+// 		},
+// 		{
+// 			"key": "base_url",
+// 			"value": "https://postman-rest-api-learner.glitch.me/"
+// 		}
+// 	]
+// }`
+
+// // SwaggerInfo holds exported Swagger Info so clients can modify it
+// var SwaggerInfo = &swag.Spec{
+// 	Version:          "1.0",
+// 	Host:             "",
+// 	BasePath:         "",
+// 	Schemes:          []string{},
+// 	Title:            "Swagger Go-Notifications API",
+// 	Description:      "",
+// 	InfoInstanceName: "swagger",
+// 	SwaggerTemplate:  docTemplate,
+// 	LeftDelim:        "{{",
+// 	RightDelim:       "}}",
+// }
+
+// func init() {
+// 	swag.Register(SwaggerInfo.InstanceName(), SwaggerInfo)
+// }
